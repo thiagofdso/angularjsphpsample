@@ -30,10 +30,19 @@ app.factory("services", ['$http', function($http) {
     return obj;   
 }]);
 
-app.controller('listCtrl', function ($scope, services) {
-    services.getCustomers().then(function(data){
-        $scope.customers = data.data;
-    });
+app.controller('listCtrl', function ($scope, services,$location) {
+	$scope.load = function(){
+		services.getCustomers().then(function(data){
+			$scope.customers = data.data;
+    })};
+	$scope.load();
+	$scope.deleteCustomer = function(data) {
+        if(confirm("Are you sure to delete customer number: "+data.customerNumber)==true)
+        services.deleteCustomer(data.customerNumber);
+		$scope.load();
+    };
+
+
 });
 
 app.controller('editCtrl', function ($scope, $rootScope, $location, $routeParams, services, customer) {
@@ -55,6 +64,8 @@ app.controller('editCtrl', function ($scope, $rootScope, $location, $routeParams
         services.deleteCustomer(customer.customerNumber);
       };
 
+	  
+	  
       $scope.saveCustomer = function(customer) {
         $location.path('/');
         if (customerID <= 0) {

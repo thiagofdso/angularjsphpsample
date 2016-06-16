@@ -6,8 +6,8 @@
 		public $data = "";
 		
 		const DB_SERVER = "127.0.0.1";
-		const DB_USER = "admin";
-		const DB_PASSWORD = "admin";
+		const DB_USER = "thiagofdso";
+		const DB_PASSWORD = "fernandes1";
 		const DB = "angularcode_customer";
 
 		private $db = NULL;

@@ -22,7 +22,8 @@
                 <td>{{data.address}}</td>
                 <td>{{data.city}}</td>
                 <td>{{data.country}}</td>
-                <td><a href="#/edit-customer/{{data.customerNumber}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Editar cliente</a></td>
+                <td><a href="#/edit-customer/{{data.customerNumber}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Editar cliente</a>
+				<a href="#/" ng-click="deleteCustomer(data)" class="btn">&nbsp;<i class="glyphicon glyphicon-remove"></i>&nbsp; Deletar cliente</a></td>
             </tr>
         </tbody>
         </table>
